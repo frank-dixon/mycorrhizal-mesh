@@ -6,7 +6,9 @@ This is a static progressive web app: an animated mesh shows sugars moving from 
 
 ## Live demo
 
-GitHub Pages is **not** enabled for this repo until Frank explicitly says deploy or ship. Until then, run it locally from `docs/`.
+**https://frank-dixon.github.io/mycorrhizal-mesh/**
+
+Portfolio micro-projects commit, push, and deploy GitHub Pages from `/docs` on `main`. LinkedIn, hub content, and resume.pdf still need those surfaces named when they are the target.
 
 ## What this is not
 
@@ -50,4 +52,4 @@ The masthead links back to [frank-dixon.github.io](https://frank-dixon.github.io
 
 ## Deploy policy
 
-Push for review is fine. Do **not** turn on GitHub Pages or otherwise go public-live until Frank says deploy or ship for this project.
+For this portfolio micro-project: commit updates, push to `main`, and keep GitHub Pages on `/docs`. Do not treat hub LinkedIn/resume surfaces as covered by this default.
