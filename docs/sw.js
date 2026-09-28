@@ -1,5 +1,5 @@
 /* Mycorrhizal Mesh — offline shell cache */
-const CACHE = 'mycorrhizal-mesh-v1';
+const CACHE = 'mycorrhizal-mesh-v2';
 const ASSETS = [
   './',
   './index.html',

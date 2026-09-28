@@ -7,13 +7,16 @@
   'use strict';
 
   const COLORS = {
-    carbon: '#d4a574',
-    phos: '#3d9e8f',
-    nitro: '#6b8cae',
-    tree: '#4a9a72',
-    fungus: '#8f6aad',
-    link: 'rgba(168, 181, 168, 0.28)',
-    soil: '#0f1410',
+    carbon: '#B87A3A',
+    phos: '#0B8A8F',
+    nitro: '#3D6A9A',
+    tree: '#2F6B4F',
+    fungus: '#6B4A8A',
+    link: 'rgba(60, 74, 66, 0.22)',
+    soil: '#F4EFE4',
+    elev: '#FFFBF3',
+    ink: '#1C2420',
+    mute: '#5C6B62',
   };
 
   /** @type {HTMLCanvasElement | null} */
@@ -100,7 +103,7 @@
 
     // Soft soil vignette
     const g = ctx.createRadialGradient(width * 0.5, height * 0.45, 40, width * 0.5, height * 0.5, Math.max(width, height) * 0.65);
-    g.addColorStop(0, '#161c18');
+    g.addColorStop(0, COLORS.elev);
     g.addColorStop(1, COLORS.soil);
     ctx.fillStyle = g;
     ctx.fillRect(0, 0, width, height);
@@ -168,14 +171,14 @@
       ctx.fillStyle = n.kind === 'tree' ? COLORS.tree : COLORS.fungus;
       ctx.fill();
       ctx.lineWidth = 2;
-      ctx.strokeStyle = 'rgba(232, 239, 232, 0.35)';
+      ctx.strokeStyle = 'rgba(28, 36, 32, 0.18)';
       ctx.stroke();
 
       if (state.mode === 'advanced' && n.kind === 'tree') {
         const pulse = reduceMotion ? 1 : 1 + Math.sin(elapsed / 900) * 0.04;
         ctx.beginPath();
         ctx.arc(x, y, n.r * 1.55 * pulse, 0, Math.PI * 2);
-        ctx.strokeStyle = 'rgba(74, 154, 114, 0.35)';
+        ctx.strokeStyle = 'rgba(47, 107, 79, 0.35)';
         ctx.lineWidth = 1.5;
         ctx.stroke();
       }
@@ -201,13 +204,13 @@
       ctx.arc(lx, legendY, 4, 0, Math.PI * 2);
       ctx.fillStyle = it.c;
       ctx.fill();
-      ctx.fillStyle = 'rgba(168, 181, 168, 0.9)';
+      ctx.fillStyle = COLORS.mute;
       ctx.fillText(it.t, lx + 10, legendY + 4);
       lx += ctx.measureText(it.t).width + 28;
     });
 
     if (state.mode === 'advanced') {
-      ctx.fillStyle = 'rgba(168, 181, 168, 0.7)';
+      ctx.fillStyle = COLORS.mute;
       ctx.font = '500 11px "IBM Plex Mono", monospace';
       ctx.textAlign = 'right';
       const seasonLabel = state.season === 'growing' ? 'Season: growing · trade active' : 'Season: dormant · trade slowed';

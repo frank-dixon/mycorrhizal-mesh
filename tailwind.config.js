@@ -1,4 +1,4 @@
-/** Mycorrhizal Mesh — forest soil + fungal trade tokens */
+/** Mycorrhizal Mesh — cream/paper craft + turquoise accent */
 module.exports = {
   content: [
     "./docs/**/*.{html,js}",
@@ -7,38 +7,44 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        soil: {
-          DEFAULT: "#0f1410",
-          elev: "#161c18",
-          panel: "rgba(18, 24, 20, 0.88)",
+        paper: {
+          DEFAULT: "#F4EFE4",
+          elev: "#FFFBF3",
+          panel: "rgba(255, 251, 243, 0.92)",
+          line: "#E2D8C4",
+        },
+        ink: {
+          DEFAULT: "#1C2420",
+          soft: "#3D4A42",
+          mute: "#5C6B62",
+        },
+        accent: {
+          DEFAULT: "#0B8A8F",
+          bright: "#0FA3A9",
+          soft: "#D5EFF0",
         },
         canopy: {
-          DEFAULT: "#2f6b4f",
-          bright: "#4a9a72",
-          deep: "#1a3d2c",
+          DEFAULT: "#2F6B4F",
+          bright: "#3D8A64",
+          deep: "#1F4A36",
         },
         fungal: {
-          DEFAULT: "#6b4a8a",
-          soft: "#8f6aad",
-          dim: "#3a284c",
+          DEFAULT: "#6B4A8A",
+          soft: "#8F6AAD",
+          mist: "#EDE4F4",
         },
         carbon: {
-          DEFAULT: "#d4a574",
-          bright: "#e8c49a",
+          DEFAULT: "#B87A3A",
+          bright: "#D4954E",
         },
         phos: {
-          DEFAULT: "#3d9e8f",
-          bright: "#5ec4b4",
+          DEFAULT: "#0B8A8F",
+          bright: "#0FA3A9",
         },
         nitro: {
-          DEFAULT: "#6b8cae",
-          bright: "#8eabd0",
+          DEFAULT: "#3D6A9A",
+          bright: "#5282B5",
         },
-        mist: {
-          DEFAULT: "#a8b5a8",
-          dim: "#6a756a",
-        },
-        ink: "#e8efe8",
       },
       fontFamily: {
         sans: ['"Source Sans 3"', "system-ui", "sans-serif"],
