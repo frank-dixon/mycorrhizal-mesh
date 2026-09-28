@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#F4EFE4">
-  <meta name="description" content="Mycorrhizal Mesh — see how trees and mycorrhizal fungi trade carbon for phosphorus and nitrogen.">
+  <meta name="description" content="Mycorrhizal Mesh — a teaching desk for tree–fungus nutrient trade: ecto vs arbuscular partners, diggable mesh, cited science.">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Mesh">
   <link rel="manifest" href="./manifest.webmanifest">
@@ -12,9 +12,9 @@
   <link rel="apple-touch-icon" href="./icons/icon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/mycorrhizal-mesh.css">
-  <title>Mycorrhizal Mesh — tree–fungus nutrient trade</title>
+  <title>Mycorrhizal Mesh — tree–fungus nutrient trade desk</title>
 </head>
 <body class="bg-paper text-ink">
   <a class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-paper-elev" href="#main">Skip to mesh</a>
@@ -33,66 +33,118 @@
     </div>
   </header>
 
-  <div class="mx-auto flex min-h-[calc(100dvh-3.25rem)] max-w-6xl flex-col gap-4 px-4 py-5 md:flex-row md:gap-6">
-    <aside class="flex w-full shrink-0 flex-col gap-4 md:w-[min(340px,38%)]">
+  <div class="mx-auto grid min-h-[calc(100dvh-3.25rem)] max-w-6xl gap-4 px-4 py-5 lg:grid-cols-[minmax(280px,340px)_1fr_minmax(260px,320px)]">
+    <aside class="flex flex-col gap-4">
       <header>
-        <p class="m-0 text-[0.68rem] font-medium uppercase tracking-brand text-accent">Portfolio demo</p>
+        <p class="m-0 text-[0.68rem] font-medium uppercase tracking-brand text-accent">Teaching desk</p>
         <h1 class="font-display m-0 mt-1 text-[clamp(1.75rem,4vw,2.35rem)] font-medium leading-tight text-ink">Mycorrhizal Mesh</h1>
-        <p class="mt-2 mb-0 text-[0.95rem] leading-snug text-ink-soft">
-          Watch trees and mycorrhizal fungi trade carbon for phosphorus and nitrogen across a living mesh.
+        <p id="desk-lead" class="mt-2 mb-0 text-[0.95rem] leading-snug text-ink-soft">
+          Endomycorrhizae (arbuscular): fungal hyphae enter root cells and build arbuscules — the intimate handshake where sugars meet soil nutrients.
         </p>
       </header>
 
       <div class="flex flex-wrap items-center gap-3" role="group" aria-label="Detail level">
         <span class="text-[0.65rem] uppercase tracking-wide2 text-ink-mute">View</span>
-        <div class="toggle-track" data-toggle="mode">
+        <div class="toggle-track">
           <button type="button" data-group="mode" data-value="simple" aria-pressed="true">Simple</button>
           <button type="button" data-group="mode" data-value="advanced" aria-pressed="false">Advanced</button>
         </div>
       </div>
 
       <div class="flex flex-wrap items-center gap-3" role="group" aria-label="Mycorrhiza type">
-        <span class="text-[0.65rem] uppercase tracking-wide2 text-ink-mute">Partner</span>
-        <div class="toggle-track" data-toggle="type">
-          <button type="button" data-group="type" data-value="am" aria-pressed="true">AM</button>
-          <button type="button" data-group="type" data-value="em" aria-pressed="false">EM</button>
+        <span class="text-[0.65rem] uppercase tracking-wide2 text-ink-mute">Architecture</span>
+        <div class="toggle-track">
+          <button type="button" data-group="type" data-value="am" aria-pressed="true">AM · endo</button>
+          <button type="button" data-group="type" data-value="em" aria-pressed="false">EM · ecto</button>
         </div>
       </div>
 
       <div id="season-wrap" class="flex flex-wrap items-center gap-3" role="group" aria-label="Season" hidden>
         <span class="text-[0.65rem] uppercase tracking-wide2 text-ink-mute">Season</span>
-        <div class="toggle-track" data-toggle="season">
+        <div class="toggle-track">
           <button type="button" data-group="season" data-value="growing" aria-pressed="true">Growing</button>
           <button type="button" data-group="season" data-value="dormant" aria-pressed="false">Dormant</button>
         </div>
       </div>
 
+      <div id="path-wrap" class="flex flex-col gap-2" hidden>
+        <span class="text-[0.65rem] uppercase tracking-wide2 text-ink-mute">Follow a path</span>
+        <div class="toggle-track flex-wrap" role="group" aria-label="Nutrient path">
+          <button type="button" data-group="path" data-value="all" aria-pressed="true">All trade</button>
+          <button type="button" data-group="path" data-value="carbon" aria-pressed="false">Carbon</button>
+          <button type="button" data-group="path" data-value="phosphorus" aria-pressed="false">Phosphorus</button>
+          <button type="button" data-group="path" data-value="nitrogen" aria-pressed="false">Nitrogen</button>
+        </div>
+      </div>
+
       <p id="trade-blurb" class="m-0 rounded-lg border border-paper-line bg-paper-elev p-3 text-[0.88rem] leading-snug text-ink-soft shadow-sm">
-        Arbuscular mycorrhizal fungi grow into root cells and trade soil phosphorus and nitrogen for sugars the tree fixed from sunlight.
+        Tap a node on the mesh. Plants pay carbon; Rhizophagus and Funneliformis forage phosphorus beyond the root’s reach and deliver it through arbuscules.
       </p>
 
       <section id="advanced-panel" class="rounded-lg border border-paper-line bg-paper-panel p-3 shadow-sm" hidden aria-label="Advanced notes">
-        <h2 class="font-display m-0 text-lg text-ink">Trade notes</h2>
+        <h2 class="font-display m-0 text-lg text-ink">What the architectures mean</h2>
         <p class="mt-2 mb-0 text-[0.85rem] leading-snug text-ink-soft">
-          In Advanced view, particle density rises and the season control slows the exchange when the canopy is dormant.
-          Carbon still moves toward the fungus; phosphorus and nitrogen still move toward the tree. Quantities here are qualitative teaching aids, not measured field fluxes.
+          <strong class="text-ink">AM (endo)</strong> fungi pierce into root cells and form arbuscules — the textbook phosphate-for-carbon bargain across most land plants.
+          <strong class="text-ink">EM (ecto)</strong> fungi wrap roots in a mantle and Hartig net; they are famous on pines and many forest trees, and often excel at mining organic nitrogen from litter.
+          Neither path is Hyphaneural gene-follow or Cambium sap physiology — this desk stays on the underground trade.
         </p>
         <h3 class="mt-4 mb-1 text-[0.65rem] font-semibold uppercase tracking-wide2 text-ink-mute">Citations</h3>
         <ul class="m-0 list-disc space-y-1.5 pl-4 text-[0.8rem] leading-snug text-ink-soft">
           <li>Smith, S. E., &amp; Read, D. J. (2008). <em>Mycorrhizal Symbiosis</em> (3rd ed.). Academic Press.</li>
           <li>van der Heijden, M. G. A., et al. (1998). Mycorrhizal fungal diversity determines plant biodiversity, ecosystem variability and productivity. <em>Nature</em>, 396, 69–72. <a class="text-accent underline" href="https://doi.org/10.1038/23932" rel="noopener noreferrer" target="_blank">doi:10.1038/23932</a></li>
           <li>Simard, S. W., et al. (2012). Mycorrhizal networks: Mechanisms, ecology and modelling. <em>Fungal Biology Reviews</em>, 26(1), 39–60. <a class="text-accent underline" href="https://doi.org/10.1016/j.fbr.2012.01.001" rel="noopener noreferrer" target="_blank">doi:10.1016/j.fbr.2012.01.001</a></li>
+          <li>Brundrett, M. C., &amp; Tedersoo, L. (2018). Evolutionary history of mycorrhizal symbioses and global host plant diversity. <em>New Phytologist</em>, 220(4), 1108–1115. <a class="text-accent underline" href="https://doi.org/10.1111/nph.14976" rel="noopener noreferrer" target="_blank">doi:10.1111/nph.14976</a></li>
         </ul>
       </section>
-
-      <p class="mt-auto mb-0 text-[0.75rem] text-ink-mute">
-        This demo pairs with Cambium and Hyphaneural without rebuilding sap physiology or gene-follow teaching.
-      </p>
     </aside>
 
-    <main id="main" class="relative min-h-[420px] flex-1 overflow-hidden rounded-xl border border-paper-line bg-paper-elev shadow-[0_18px_48px_rgba(28,36,32,0.08)]">
-      <canvas id="mesh" aria-label="Animated mesh of trees trading nutrients with mycorrhizal fungi"></canvas>
+    <main id="main" class="relative flex min-h-[480px] flex-col overflow-hidden rounded-xl border border-paper-line bg-paper-elev shadow-[0_18px_48px_rgba(28,36,32,0.08)]">
+      <div class="flex items-center justify-between gap-2 border-b border-paper-line px-3 py-2">
+        <p id="mesh-meta" class="m-0 text-[0.72rem] uppercase tracking-wide2 text-ink-mute">Arbuscular mesh</p>
+        <p class="m-0 text-[0.72rem] text-ink-mute">Organic strands · tap to dig in</p>
+      </div>
+      <canvas id="mesh" class="min-h-0 flex-1" aria-label="Interactive mycorrhizal nutrient mesh. Tap nodes for species detail."></canvas>
     </main>
+
+    <aside class="flex flex-col gap-3 rounded-xl border border-paper-line bg-paper-elev p-4 shadow-sm" aria-live="polite">
+      <div class="flex items-start justify-between gap-2">
+        <h2 class="font-display m-0 text-xl text-ink">Field notes</h2>
+        <button type="button" id="detail-clear" class="rounded-full border border-paper-line bg-paper px-2.5 py-1 text-[0.7rem] uppercase tracking-wide2 text-ink-mute hover:border-accent hover:text-accent">Clear</button>
+      </div>
+
+      <div id="detail-empty" class="text-[0.9rem] leading-snug text-ink-soft">
+        <p class="m-0">Tap any plant, fungus, or soil node on the mesh to open species role, what each side trades, seasonality, and soil context.</p>
+        <p class="mt-3 mb-0 text-[0.8rem] text-ink-mute">Simple keeps the story readable. Advanced adds season, nutrient-path follow, and denser citations.</p>
+      </div>
+
+      <div id="detail-body" hidden>
+        <p id="detail-kind" class="m-0 text-[0.65rem] font-semibold uppercase tracking-wide2 text-accent"></p>
+        <h3 id="detail-label" class="font-display m-0 mt-1 text-2xl text-ink"></h3>
+        <p id="detail-sci" class="mt-1 mb-3 font-display text-[0.95rem] italic text-ink-soft"></p>
+        <dl class="m-0 space-y-3 text-[0.86rem] leading-snug">
+          <div>
+            <dt class="text-[0.65rem] font-semibold uppercase tracking-wide2 text-ink-mute">Role</dt>
+            <dd id="detail-role" class="m-0 mt-0.5 text-ink"></dd>
+          </div>
+          <div>
+            <dt class="text-[0.65rem] font-semibold uppercase tracking-wide2 text-ink-mute">What is traded</dt>
+            <dd id="detail-trades" class="m-0 mt-0.5 text-ink-soft"></dd>
+          </div>
+          <div>
+            <dt class="text-[0.65rem] font-semibold uppercase tracking-wide2 text-ink-mute">Seasonality</dt>
+            <dd id="detail-season" class="m-0 mt-0.5 text-ink-soft"></dd>
+          </div>
+          <div>
+            <dt class="text-[0.65rem] font-semibold uppercase tracking-wide2 text-ink-mute">Soil context</dt>
+            <dd id="detail-soil" class="m-0 mt-0.5 text-ink-soft"></dd>
+          </div>
+          <div>
+            <dt class="text-[0.65rem] font-semibold uppercase tracking-wide2 text-ink-mute">Partners / notes</dt>
+            <dd id="detail-partners" class="m-0 mt-0.5 text-ink-soft"></dd>
+          </div>
+        </dl>
+      </div>
+    </aside>
   </div>
 
   <script src="./js/mesh.js"></script>
