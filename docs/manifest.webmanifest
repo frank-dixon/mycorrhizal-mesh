@@ -1,0 +1,17 @@
+{
+  "name": "Mycorrhizal Mesh",
+  "short_name": "Mesh",
+  "description": "Tree–fungus nutrient trade visualizer",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f1410",
+  "theme_color": "#0f1410",
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

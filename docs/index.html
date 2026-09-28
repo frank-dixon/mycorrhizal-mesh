@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f1410">
+  <meta name="description" content="Mycorrhizal Mesh — see how trees and mycorrhizal fungi trade carbon for phosphorus and nitrogen.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Mesh">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="./icons/icon.svg">
+  <link rel="apple-touch-icon" href="./icons/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/mycorrhizal-mesh.css">
+  <title>Mycorrhizal Mesh — tree–fungus nutrient trade</title>
+</head>
+<body class="bg-soil text-ink">
+  <a class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-canopy focus:px-4 focus:py-2 focus:text-ink" href="#main">Skip to mesh</a>
+
+  <header class="hub-masthead">
+    <div class="hub-nav">
+      <a class="hub-wordmark" href="https://frank-dixon.github.io/">Frank Dixon<span>.</span></a>
+      <nav aria-label="Frank Dixon site">
+        <ul>
+          <li><a href="https://frank-dixon.github.io/#about">About</a></li>
+          <li><a href="https://frank-dixon.github.io/#work">Work</a></li>
+          <li><a href="https://frank-dixon.github.io/#projects">Projects</a></li>
+          <li><a href="https://frank-dixon.github.io/#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mx-auto flex min-h-[calc(100dvh-3.25rem)] max-w-6xl flex-col gap-4 px-4 py-5 md:flex-row md:gap-6">
+    <aside class="flex w-full shrink-0 flex-col gap-4 md:w-[min(340px,38%)]">
+      <header>
+        <p class="m-0 text-[0.68rem] font-medium uppercase tracking-brand text-mist">Portfolio demo</p>
+        <h1 class="font-display m-0 mt-1 text-[clamp(1.75rem,4vw,2.35rem)] font-medium leading-tight text-ink">Mycorrhizal Mesh</h1>
+        <p class="mt-2 mb-0 text-[0.95rem] leading-snug text-mist">
+          Watch trees and mycorrhizal fungi trade carbon for phosphorus and nitrogen across a living mesh.
+        </p>
+      </header>
+
+      <div class="flex flex-wrap items-center gap-3" role="group" aria-label="Detail level">
+        <span class="text-[0.65rem] uppercase tracking-wide2 text-mist-dim">View</span>
+        <div class="toggle-track" data-toggle="mode">
+          <button type="button" data-group="mode" data-value="simple" aria-pressed="true">Simple</button>
+          <button type="button" data-group="mode" data-value="advanced" aria-pressed="false">Advanced</button>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3" role="group" aria-label="Mycorrhiza type">
+        <span class="text-[0.65rem] uppercase tracking-wide2 text-mist-dim">Partner</span>
+        <div class="toggle-track" data-toggle="type">
+          <button type="button" data-group="type" data-value="am" aria-pressed="true">AM</button>
+          <button type="button" data-group="type" data-value="em" aria-pressed="false">EM</button>
+        </div>
+      </div>
+
+      <div id="season-wrap" class="flex flex-wrap items-center gap-3" role="group" aria-label="Season" hidden>
+        <span class="text-[0.65rem] uppercase tracking-wide2 text-mist-dim">Season</span>
+        <div class="toggle-track" data-toggle="season">
+          <button type="button" data-group="season" data-value="growing" aria-pressed="true">Growing</button>
+          <button type="button" data-group="season" data-value="dormant" aria-pressed="false">Dormant</button>
+        </div>
+      </div>
+
+      <p id="trade-blurb" class="m-0 rounded-lg border border-white/10 bg-soil-elev/80 p-3 text-[0.88rem] leading-snug text-mist">
+        Arbuscular mycorrhizal fungi grow into root cells and trade soil phosphorus and nitrogen for sugars the tree fixed from sunlight.
+      </p>
+
+      <section id="advanced-panel" class="rounded-lg border border-white/10 bg-soil-panel p-3" hidden aria-label="Advanced notes">
+        <h2 class="font-display m-0 text-lg text-ink">Trade notes</h2>
+        <p class="mt-2 mb-0 text-[0.85rem] leading-snug text-mist">
+          In Advanced view, particle density rises and the season control slows the exchange when the canopy is dormant.
+          Carbon still moves toward the fungus; phosphorus and nitrogen still move toward the tree. Quantities here are qualitative teaching aids, not measured field fluxes.
+        </p>
+        <h3 class="mt-4 mb-1 text-[0.65rem] font-semibold uppercase tracking-wide2 text-mist-dim">Citations</h3>
+        <ul class="m-0 list-disc space-y-1.5 pl-4 text-[0.8rem] leading-snug text-mist">
+          <li>Smith, S. E., &amp; Read, D. J. (2008). <em>Mycorrhizal Symbiosis</em> (3rd ed.). Academic Press.</li>
+          <li>van der Heijden, M. G. A., et al. (1998). Mycorrhizal fungal diversity determines plant biodiversity, ecosystem variability and productivity. <em>Nature</em>, 396, 69–72. <a class="text-phos-bright underline" href="https://doi.org/10.1038/23932" rel="noopener noreferrer" target="_blank">doi:10.1038/23932</a></li>
+          <li>Simard, S. W., et al. (2012). Mycorrhizal networks: Mechanisms, ecology and modelling. <em>Fungal Biology Reviews</em>, 26(1), 39–60. <a class="text-phos-bright underline" href="https://doi.org/10.1016/j.fbr.2012.01.001" rel="noopener noreferrer" target="_blank">doi:10.1016/j.fbr.2012.01.001</a></li>
+        </ul>
+      </section>
+
+      <p class="mt-auto mb-0 text-[0.75rem] text-mist-dim">
+        This demo pairs with Cambium and Hyphaneural without rebuilding sap physiology or gene-follow teaching.
+        <a class="text-canopy-bright underline" href="https://github.com/frank-dixon/mycorrhizal-mesh" rel="noopener noreferrer" target="_blank">Source</a>
+      </p>
+    </aside>
+
+    <main id="main" class="relative min-h-[420px] flex-1 overflow-hidden rounded-xl border border-white/10 bg-soil-elev shadow-[0_24px_60px_rgba(0,0,0,0.35)]">
+      <canvas id="mesh" aria-label="Animated mesh of trees trading nutrients with mycorrhizal fungi"></canvas>
+    </main>
+  </div>
+
+  <script src="./js/mesh.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

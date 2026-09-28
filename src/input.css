@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  body {
+    @apply m-0 min-h-dvh bg-soil text-ink font-sans text-[15px] font-normal;
+  }
+}
+
+@layer components {
+  .hub-masthead {
+    @apply border-b border-white/10 bg-soil-elev/90 backdrop-blur-md;
+  }
+  .hub-nav {
+    @apply mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-3;
+  }
+  .hub-wordmark {
+    @apply font-display text-lg tracking-wide text-ink no-underline;
+  }
+  .hub-wordmark span {
+    @apply text-canopy-bright;
+  }
+  .hub-nav nav ul {
+    @apply m-0 flex list-none flex-wrap gap-x-4 gap-y-1 p-0;
+  }
+  .hub-nav nav a {
+    @apply text-[0.78rem] tracking-wide2 uppercase text-mist no-underline hover:text-ink;
+  }
+
+  .toggle-track {
+    @apply inline-flex rounded-full border border-white/15 bg-black/30 p-0.5;
+  }
+  .toggle-track button {
+    @apply rounded-full border-0 bg-transparent px-3 py-1.5 text-[0.72rem] tracking-wide2 uppercase text-mist cursor-pointer;
+  }
+  .toggle-track button[aria-pressed="true"] {
+    @apply bg-canopy/40 text-ink;
+  }
+
+  #mesh {
+    @apply block h-full w-full touch-none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
